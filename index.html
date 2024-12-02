@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>企业官网</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* 通用样式 */
         html {
@@ -32,7 +32,7 @@
         /* 首页样式 */
         #home {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920') no-repeat center center;
+                        url('https://images.pexels.com/photos/256520/pexels-photo-256520.jpeg') no-repeat center center;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -418,6 +418,13 @@
     </style>
 </head>
 <body>
+    <!-- 在 body 开始处添加加载提示 -->
+    <div id="loading" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: white; z-index: 9999; display: flex; justify-content: center; align-items: center;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">加载中...</span>
+        </div>
+    </div>
+
     <!-- 导航栏 -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -524,7 +531,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card product-card">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800" class="card-img-top" alt="中小学课程">
+                        <img src="https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg" class="card-img-top" alt="中小学课程">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="#" class="course-link" data-bs-toggle="modal" data-bs-target="#primaryModal">
@@ -537,7 +544,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card product-card">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" class="card-img-top" alt="高考冲刺">
+                        <img src="https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg" class="card-img-top" alt="高考冲刺">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="#" class="course-link" data-bs-toggle="modal" data-bs-target="#gaokaoModal">
@@ -550,7 +557,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card product-card">
-                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800" class="card-img-top" alt="兴趣课程">
+                        <img src="https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg" class="card-img-top" alt="兴趣课程">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="#" class="course-link" data-bs-toggle="modal" data-bs-target="#qualityModal">
@@ -600,14 +607,14 @@
                         <div class="col-6">
                             <div class="team-member">
                                 <div class="member-img">
-                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" alt="教学总监">
+                                    <img src="https://images.pexels.com/photos/7516363/pexels-photo-7516363.jpeg" alt="教学总监">
                                     <div class="social-links">
                                         <a href="#"><i class="fab fa-linkedin"></i></a>
                                         <a href="#"><i class="fab fa-twitter"></i></a>
                                     </div>
                                 </div>
                                 <div class="member-info">
-                                    <h4>王梅</h4>
+                                    <h4>刘嘉</h4>
                                     <p>教学总监</p>
                                     <span>从教15年经验</span>
                                 </div>
@@ -616,7 +623,7 @@
                         <div class="col-6">
                             <div class="team-member">
                                 <div class="member-img">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" alt="课程研发主管">
+                                    <img src="https://images.pexels.com/photos/5905902/pexels-photo-5905902.jpeg" alt="课程研发主管">
                                     <div class="social-links">
                                         <a href="#"><i class="fab fa-linkedin"></i></a>
                                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -649,7 +656,7 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- 在 body 标签结束前，Bootstrap JS 脚本之前添加以下代码 -->
     <script>
         // 处理电话点击事件
@@ -670,6 +677,45 @@
             navigator.clipboard.writeText(email).then(() => {
                 alert('邮箱地址已复制到剪贴板：' + email);
             });
+        });
+
+        // 页面加载完成后隐藏加载提示
+        window.addEventListener('load', function() {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // 确保模态框正常工作
+        document.addEventListener('DOMContentLoaded', function() {
+            var modals = [].slice.call(document.querySelectorAll('.modal'));
+            modals.forEach(function(modal) {
+                modal.addEventListener('shown.bs.modal', function() {
+                    document.body.style.overflow = 'hidden';
+                });
+                modal.addEventListener('hidden.bs.modal', function() {
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+
+        // 为所有图片添加加载失败处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.getElementsByTagName('img');
+            for(let img of images) {
+                img.onerror = function() {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNmMGYwZjAiLz48dGV4dCB4PSI1MCIgeT0iNTAiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZmlsbD0iIzk5OSI+图片加载失败</text></c3ZnPg==';
+                };
+            }
+        });
+
+        // 全局错误处理
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            return false;
+        };
+
+        // 处理 Promise 错误
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
         });
     </script>
 
